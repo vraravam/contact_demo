@@ -45,6 +45,7 @@ config :ex_admin,
     ContactDemo.ExAdmin.Dashboard,
     ContactDemo.ExAdmin.Group,
     ContactDemo.ExAdmin.Role,
+    ContactDemo.ExAdmin.PurchaseOrder,
     ContactDemo.ExAdmin.User
   ],
   head_template: {ContactDemo.AdminView, "contact_demo_admin_layout.html"}

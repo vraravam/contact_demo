@@ -10,8 +10,8 @@
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
 
-alias ContactDemo.{Category, Contact, ContactGroup, ContactPhoneNumber, Group, PhoneNumber, Repo, Role, User, UserRole}
-alias FakerElixir.{Internet, Name, Phone}
+alias ContactDemo.{Category, Contact, ContactGroup, ContactPhoneNumber, Group, PhoneNumber, PurchaseOrder, Repo, Role, User, UserRole}
+alias FakerElixir.{Date, Internet, Name, Number, Phone}
 alias Coherence.ControllerHelpers
 
 [
@@ -99,4 +99,14 @@ for _i <- 1..100 do
     })
     |> Repo.insert!
   end
+end
+
+for _ <- 1..Enum.random(8..50) do
+  PurchaseOrder.changeset(%PurchaseOrder{}, %{
+    placed_on: Date.backward(Enum.random(1..50)),
+    name: Name.name,
+    buying_price: Decimal.new(Number.between(20.0, 50.0)),
+    currency_code: "INR"
+  })
+  |> Repo.insert!
 end
