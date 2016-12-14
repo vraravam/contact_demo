@@ -17,6 +17,17 @@ defmodule ContactDemo.ExAdmin.Group do
       inputs do
         input group, :name
       end
+
+      script type: "text/javascript" do
+        text """
+        $(function() {
+          console.log("CAME HERE!");
+          $(document).ready(function() {
+            alert("CAME HERE as well!");
+          });
+        });
+        """
+      end
     end
 
     show group do
